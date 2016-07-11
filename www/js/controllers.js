@@ -6,7 +6,12 @@ angular.module('starter.controllers', [])
   $scope.caption = 'This is an example caption';
   $scope.description = 'This is an example description';
   $scope.shareToFacebook = function(image,postName, caption, description) {
+
     console.log('Button');
+    console.log($scope.image);
+    console.log($scope.postName);
+    console.log($scope.caption);
+    console.log($scope.description);
 
     var url = "https://www.facebook.com/dialog/feed?app_id=1617424538586903&name="+postName+"&display=popup&caption="+caption+"&description="+description+"&link="+image+"&redirect_uri=http://facebook.com&picture="+image;
     window.open(url, '_blank');
