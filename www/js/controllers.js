@@ -35,6 +35,8 @@ angular.module('starter.controllers', [])
                 console.log('Facebook login succeeded');
                 console.log(response);
                 //$scope.closeLogin();
+                window.localStorage['accessToken'] = response.authResponse.accessToken;
+                console.log(response.authResponse.accessToken);
             } else {
                 alert('Facebook login failed');
             }
