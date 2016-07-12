@@ -35,13 +35,14 @@ angular.module('starter', ['ionic','starter.controllers','ngOpenFB'])
 
     .state('app', {
     url: '/app',
+    cache: false,
     templateUrl: 'templates/fbPost.html',
     controller: 'facebookPostSharingCtrl'
   })
 
   .state('facebookDirectSharing', {
     url: '/facebookDirectSharing',
-
+    cache: false,
         templateUrl: 'templates/fbPostForm.html',
         controller: 'facebookDirectSharingCtrl'
 
@@ -49,6 +50,7 @@ angular.module('starter', ['ionic','starter.controllers','ngOpenFB'])
 
   .state('login', {
     url: '/login',
+    cache: false,
         templateUrl: 'templates/login.html',
         controller: 'loginCtrl'
   });
