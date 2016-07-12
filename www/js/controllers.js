@@ -25,7 +25,7 @@ angular.module('starter.controllers', [])
 
   })
 
-.controller('loginCtrl', function($scope, ngFB) {
+.controller('loginCtrl', function($scope, ngFB, $state) {
   console.log('This is Login');
 
   $scope.fbLogin = function () {
@@ -37,6 +37,7 @@ angular.module('starter.controllers', [])
                 //$scope.closeLogin();
                 window.localStorage['accessToken'] = response.authResponse.accessToken;
                 console.log(response.authResponse.accessToken);
+                $state.go('facebookDirectSharing');
             } else {
                 alert('Facebook login failed');
             }
