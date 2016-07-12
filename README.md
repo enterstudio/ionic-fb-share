@@ -24,6 +24,10 @@ We are going to use Facebook's feed dialog to share the content to facebook whic
 
  * ionic run android
 
+# Notice
+
+In the **shareToFacebookUsingFeedDialog** function inside the controller, the variable **appId.id** needs to be replaced with the app id of your registered facebook app. 
+
 # Testing
 
 For our test cases, we are using the two libraries:
