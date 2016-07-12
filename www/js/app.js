@@ -3,11 +3,18 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic','starter.controllers'])
+angular.module('starter', ['ionic', 'starter.controllers', 'ngOpenFB'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, ngFB) {
+
+
   $ionicPlatform.ready(function() {
-    if(window.cordova && window.cordova.plugins.Keyboard) {
+
+    ngFB.init({
+      appId: appId.id
+    });
+
+    if (window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -17,7 +24,7 @@ angular.module('starter', ['ionic','starter.controllers'])
       // a much nicer keyboard experience.
       cordova.plugins.Keyboard.disableScroll(true);
     }
-    if(window.StatusBar) {
+    if (window.StatusBar) {
       StatusBar.styleDefault();
     }
   });
@@ -28,9 +35,25 @@ angular.module('starter', ['ionic','starter.controllers'])
 
     .state('app', {
     url: '/app',
+    cache: false,
     templateUrl: 'templates/fbPost.html',
-    controller: 'facebookPostSharing'
+    controller: 'facebookPostSharingCtrl'
   })
+
+  .state('facebookDirectSharing', {
+    url: '/facebookDirectSharing',
+    cache: false,
+    templateUrl: 'templates/fbPostForm.html',
+    controller: 'facebookDirectSharingCtrl'
+
+  })
+
+  .state('login', {
+    url: '/login',
+    cache: false,
+    templateUrl: 'templates/login.html',
+    controller: 'loginCtrl'
+  });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app');
