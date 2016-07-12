@@ -1,11 +1,10 @@
 # ionic-fb-share
 
-Ionic-fb-share app is a demo mobile application from which you can share content to facebook.
+Ionic-fb-share app is an example mobile application which showcases how to share content from an Ionic mobile app to facebook.
 
 We are going to use Facebook's feed dialog to share the content to facebook which uses Facebook's graph api to post the story.
 
 # Installation
-
 
  *git clone https://github.com/tech-dojo/ionic-fb-share.git
 
@@ -25,9 +24,15 @@ We are going to use Facebook's feed dialog to share the content to facebook whic
 
  *ionic run android
 
-# How to Test
+# Testing
 
-In order to run the test codes, change directory and go into **tests** folder and run the **test.html** file.
+For our test cases, we are using the two libraries:
+
+ *Jasmine
+ 
+ *Angular Mocks 
+ 
+In order to run the test codes, change directory and go into **tests** folder and open the **test.html** file.
 
 ## License
 
