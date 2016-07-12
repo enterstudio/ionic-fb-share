@@ -7,13 +7,13 @@ angular.module('starter.controllers', [])
   $scope.description = 'This is an example description';
 
   console.log(appId.id);
-  $scope.shareToFacebook = function(image,postName, caption, description) {
+  $scope.shareToFacebookUsingFeedDialog = function(image,postName, caption, description) {
 
-    console.log('Button');
-    console.log($scope.image);
-    console.log($scope.postName);
-    console.log($scope.caption);
-    console.log($scope.description);
+    console.log('Inside shareToFacebookUsingFeedDialog Function');
+    console.log(image);
+    console.log(postName);
+    console.log(caption);
+    console.log(description);
 
     var url = "https://www.facebook.com/dialog/feed?app_id="+appId.id+"&name="+postName+"&display=popup&caption="+caption+"&description="+description+"&link="+image+"&redirect_uri=http://facebook.com&picture="+image;
     window.open(url, '_blank');
