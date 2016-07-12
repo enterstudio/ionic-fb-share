@@ -25,6 +25,19 @@ angular.module('starter.controllers', [])
 
   })
 
-.controller('loginCtrl', function($scope) {
+.controller('loginCtrl', function($scope, ngFB) {
   console.log('This is Login');
+
+  $scope.fbLogin = function () {
+    ngFB.login({scope: 'email,public_profile, publish_actions'}).then(
+        function (response) {
+            if (response.status === 'connected') {
+                console.log('Facebook login succeeded');
+                console.log(response);
+                //$scope.closeLogin();
+            } else {
+                alert('Facebook login failed');
+            }
+        });
+};
   })
