@@ -6,31 +6,31 @@ We are going to use Facebook's feed dialog to share the content to facebook whic
 
 # Installation
 
- *git clone https://github.com/tech-dojo/ionic-fb-share.git
+ * git clone https://github.com/tech-dojo/ionic-fb-share.git
 
- *cd ionic-fb-share
+ * cd ionic-fb-share
 
- *npm install -g ionic cordova
+ * npm install -g ionic cordova
  
 ## For running in browser
  
- *ionic serve
+ * ionic serve
  
 ## For running in device
  
- *ionic state restore
+ * ionic state restore
 
- *ionic platform add android
+ * ionic platform add android
 
- *ionic run android
+ * ionic run android
 
 # Testing
 
 For our test cases, we are using the two libraries:
 
- *Jasmine
+ * Jasmine
  
- *Angular Mocks 
+ * Angular Mocks 
  
 In order to run the test codes, change directory and go into **tests** folder and open the **test.html** file.
 
