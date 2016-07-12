@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('facebookPostSharing', function($scope) {
+.controller('facebookPostSharingCtrl', function($scope) {
   $scope.image = 'http://1.bp.blogspot.com/-whONj2eVaPM/TkLEIoj1hxI/AAAAAAAAEQo/ZyE2gApEe3k/s1600/gmc.png';
   $scope.postName = 'This is an example post name';
   $scope.caption = 'This is an example caption';
@@ -19,3 +19,12 @@ angular.module('starter.controllers', [])
     window.open(url, '_blank');
   }
 })
+
+.controller('facebookDirectSharingCtrl', function($scope) {
+  console.log('This is facebookDirectSharing');
+
+  })
+
+.controller('loginCtrl', function($scope) {
+  console.log('This is Login');
+  })

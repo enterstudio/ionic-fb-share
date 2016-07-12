@@ -5,7 +5,7 @@ describe('facebookPostSharing', function() {
 
   beforeEach(inject(function($controller, $rootScope) {
     scope = $rootScope.$new();
-    controller = $controller('facebookPostSharing', {
+    controller = $controller('facebookPostSharingCtrl', {
       $scope: scope
     });
 

@@ -29,8 +29,22 @@ angular.module('starter', ['ionic','starter.controllers'])
     .state('app', {
     url: '/app',
     templateUrl: 'templates/fbPost.html',
-    controller: 'facebookPostSharing'
+    controller: 'facebookPostSharingCtrl'
   })
+
+  .state('facebookDirectSharing', {
+    url: '/facebookDirectSharing',
+
+        templateUrl: 'templates/fbPostForm.html',
+        controller: 'facebookDirectSharingCtrl'
+
+  })
+
+  .state('login', {
+    url: '/login',
+        templateUrl: 'templates/login.html',
+        controller: 'loginCtrl'
+  });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app');
