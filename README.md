@@ -50,12 +50,12 @@ For more details, give this a read [Facebook Post from your Ionic app](http://ww
 
 # References
 
-[Access Tokens](https://developers.facebook.com/docs/facebook-login/access-tokens/)
-[Permissions](https://developers.facebook.com/docs/facebook-login/permissions/)
-[Facebook Graph API](https://developers.facebook.com/docs/graph-api/reference/)
-[In-app-browser-ionic tutorial](http://sourcefreeze.com/cordova-inappbrowser-plugin-example-using-ionic-framework/)
-[ionic-facebook-integration](https://ccoenraets.github.io/ionic-tutorial/ionic-facebook-integration.html)
-[Facebook's Feed Dialog](https://developers.facebook.com/docs/sharing/reference/feed-dialog)
+ * [Access Tokens](https://developers.facebook.com/docs/facebook-login/access-tokens/)
+ * [Permissions](https://developers.facebook.com/docs/facebook-login/permissions/)
+ * [Facebook Graph API](https://developers.facebook.com/docs/graph-api/reference/)
+ * [In-app-browser-ionic tutorial](http://sourcefreeze.com/cordova-inappbrowser-plugin-example-using-ionic-framework/)
+ * [ionic-facebook-integration](https://ccoenraets.github.io/ionic-tutorial/ionic-facebook-integration.html)
+ * [Facebook's Feed Dialog](https://developers.facebook.com/docs/sharing/reference/feed-dialog)
 
 ## License
 
