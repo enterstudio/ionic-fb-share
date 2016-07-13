@@ -8,12 +8,12 @@
 ​
       <label class="item item-input item-stacked-label">
         <span class="input-label">Message</span>
-        <input type="text" placeholder="Example Message">
+        <input ng-model="message" type="text" placeholder="Example Message">
       </label>
     </form>
     <div class="row">
       <div class="col col-50"></div>
-      <button type="submit" class="button button-large button-dark col">Post Image</button>
+      <button type="submit" ng-click="postImage(photo,message)" class="button button-large button-dark col">Post Image</button>
     </div>
   </ion-content>
   </ion-view>

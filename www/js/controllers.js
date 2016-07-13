@@ -197,6 +197,38 @@ $scope.getPicture = function(options) {
     }, function(err) {
       console.log(err);
     });
+  }
+
+
+  $scope.postImage = function(fileURI, message) {
+        var accessToken = window.localStorage['accessToken'];
+
+
+      var win = function (r) {
+        console.log(r);
+          alert("Successfully Posted");
+      }
+
+      var fail = function (error) {
+
+          console.log(error);
+          alert("Failed to Post");
+      }
+
+      var options = new FileUploadOptions();
+      options.fileKey = "file";
+      options.fileName = 'name_of_photo_' + Math.round((+(new Date()) + Math.random()));
+      options.mimeType = "image/jpg";
+
+      var params = new Object();
+      params.access_token = accessToken;
+      params.message = message;
+      params.no_story = false;
+
+      options.params = params;
+
+      var ft = new FileTransfer();
+      ft.upload(fileURI, "https://graph.facebook.com/v2.6/me/photos", win, fail, options);
 
   }
 

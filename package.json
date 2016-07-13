@@ -23,7 +23,9 @@
     "ionic-plugin-keyboard",
     "cordova-plugin-inappbrowser",
     "cordova-plugin-camera",
-    "cordova-plugin-compat"
+    "cordova-plugin-compat",
+    "cordova-plugin-file",
+    "cordova-plugin-file-transfer"
   ],
   "cordovaPlatforms": [
     "ios",
