@@ -2,9 +2,9 @@
 
 Ionic-fb-share app is an example mobile application which showcases how to share content from an Ionic mobile app to facebook using two different methods.
 
-We are going to use Facebook's feed dialog to share the content to facebook which uses Facebook's graph api to post the story.
+This application uses Facebook's feed dialog to share the content to facebook which uses Facebook's graph api to post the story.
 
-We are also going to post to facebook directly from our app using the micro-library openFB and the angularized ngOpenFB.
+This application can also post to facebook directly using the micro-library openFB and the angularized ngOpenFB.
 
 # Installation
 
@@ -30,13 +30,13 @@ We are also going to post to facebook directly from our app using the micro-libr
 
 In the **shareToFacebookUsingFeedDialog** function inside the controller, the variable **appId.id** needs to be replaced with the app id of your registered facebook app.
 
-Posting directly on facebook using openFB, requires you to have administration privileges. If you want to other users to be able to share to facebook directly, you will need to get your app reviewed by facebook and also apply for permission on what items your app wishes to access for a specific user.
+Posting directly on facebook using openFB, requires the developer to have administration privileges. In order to allow normal users to be able to share to facebook directly, the ionic application will need to be reviewed by facebook and also the developer would need to apply for permission on what items the application can access for a specific user.
 
-In order to share to facebook directly using openFB, you must be logged in.
+In order to share to facebook directly using openFB, the user must be logged in.
 
 # Testing
 
-For our test cases, we are using the two libraries:
+For the test cases, two libraries are being used:
 
  * Jasmine
  
