@@ -48,6 +48,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngOpenFB'])
 
   })
 
+
+  .state('facebookImageSharing', {
+    url: '/facebookImageSharing',
+    cache: false,
+    templateUrl: 'templates/fbPostImageForm.html',
+    controller: 'facebookImageSharingCtrl'
+  })
+
   .state('login', {
     url: '/login',
     cache: false,

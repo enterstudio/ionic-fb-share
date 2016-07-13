@@ -30,6 +30,18 @@ angular.module('starter.controllers', [])
       $state.go('facebookDirectSharing');
     }
   }
+
+  $scope.shareToFacebookUsingLocalStorageImageView = function() {
+  //   var accessToken = window.localStorage['accessToken'];
+  //   console.log('B4IF');
+  //   console.log(accessToken);
+  //   if (accessToken == undefined) {
+  //     $state.go('login');
+  //   } else {
+  //     $state.go('facebookImageSharing');
+  //   }
+  $state.go('facebookImageSharing');
+   }
 })
 
 .controller('facebookDirectSharingCtrl', function($scope, $q, ngFB) {
@@ -73,10 +85,22 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('loginCtrl', function($scope, ngFB, $state) {
+.controller('loginCtrl', function($scope, ngFB, $state,$ionicLoading) {
   console.log('This is Login');
 
+  $scope.show = function() {
+    $ionicLoading.show({
+      template: 'Loading...'
+    })
+  };
+
+  $scope.hide = function() {
+    $ionicLoading.hide();
+
+  };
+
   $scope.fbLogin = function() {
+    $scope.show();
     ngFB.login({
       scope: 'email,public_profile, publish_actions'
     }).then(
@@ -86,10 +110,94 @@ angular.module('starter.controllers', [])
           console.log(response);
           window.localStorage['accessToken'] = response.authResponse.accessToken;
           console.log(response.authResponse.accessToken);
-          $state.go('facebookDirectSharing');
+          $scope.getFbUserInfo();
         } else {
           alert('Facebook login failed');
         }
       });
   };
+
+  $scope.getFbUserInfo = function() {
+    ngFB.api({
+      path: '/v2.6/me',
+      params: {
+        fields: 'id,name,picture,gender,email'
+      }
+    }).then(
+      function(user) {
+        console.log(user);
+        window.localStorage['userId'] = user.id;
+        $scope.hide();
+        $state.go('app');
+
+      },
+      function(error) {
+        alert('Facebook error: ' + error.error_description);
+      });
+  }
 })
+
+.controller('facebookImageSharingCtrl', function($scope, ngFB, $state, $ionicActionSheet, $q) {
+  console.log('This is facebookImageSharingCtrl');
+
+$scope.getPicture = function(options) {
+      var q = $q.defer();
+
+      navigator.camera.getPicture(function(result) {
+        q.resolve(result);
+      }, function(err) {
+        q.reject(err);
+      }, options);
+
+      return q.promise;
+    }
+
+
+  $scope.chooseImageSourceType = function() {
+    var hideSheet = $ionicActionSheet.show({
+      buttons: [{
+        text: 'Choose Image to Share'
+      }, {
+        text: 'Take Photo'
+      }, ],
+      titleText: 'Add Photo',
+      cancelText: 'Cancel',
+      cancel: function() {
+
+      },
+      buttonClicked: function(index) {
+        if (index == 0) {
+          $scope.takePicture(index);
+        } else if (index == 1) {
+          $scope.takePicture(index);
+        }
+
+      }
+    });
+
+    // $timeout(function() {
+    //   hideSheet();
+    // }, 3000);
+  }
+
+  $scope.takePicture = function(src) {
+
+    var options = {
+      quality: 75,
+      targetWidth: 200,
+      targetHeight: 200,
+      sourceType: src,
+      encodingType: 0,
+      destinationType: 1
+    };
+
+    $scope.getPicture(options).then(function(imageData) {
+      $scope.photo = imageData;
+      console.log(imageData);
+    }, function(err) {
+      console.log(err);
+    });
+
+  }
+
+  })

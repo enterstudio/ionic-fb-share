@@ -1,7 +1,4 @@
-<ion-modal-view>
-  <ion-header-bar>
-    <h1 class="title center">Facebook posts</h1>
-  </ion-header-bar>
+<ion-view view-title="Facebook Posts">
   <ion-content>
     <button ng-click='shareToFacebookUsingFeedDialog(image,postName, caption, description)' class="button button-full button-positive">
       Feed Dialog
@@ -9,5 +6,8 @@
     <button ng-click="shareToFacebookUsingDirectPostView()" class="button button-full button-calm">
       Direct Post
     </button>
+    <button ng-click="shareToFacebookUsingLocalStorageImageView()" class="button button-full button-balanced">
+      Photo Share
+    </button>
   </ion-content>
-</ion-modal-view>
+</ion-view>
