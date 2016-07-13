@@ -44,6 +44,13 @@ For the test cases, two libraries are being used:
  
 In order to run the test codes, change directory and go into **tests** folder and open the **test.html** file.
 
+# References
+
+[Access Tokens](https://developers.facebook.com/docs/facebook-login/access-tokens/)
+[]()
+[]()
+[]()
+
 ## License
 
 MIT License is hereby granted, free of charge, to any person obtaining
