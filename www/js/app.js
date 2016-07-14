@@ -43,7 +43,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngOpenFB'])
   .state('facebookDirectSharing', {
     url: '/facebookDirectSharing',
     cache: false,
-    templateUrl: 'templates/fbPostForm.html',
+    templateUrl: 'templates/fbPostDirectSharing.html',
     controller: 'facebookDirectSharingCtrl'
 
   })
@@ -52,7 +52,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngOpenFB'])
   .state('facebookImageSharing', {
     url: '/facebookImageSharing',
     cache: false,
-    templateUrl: 'templates/fbPostImageForm.html',
+    templateUrl: 'templates/fbPostImageSharing.html',
     controller: 'facebookImageSharingCtrl'
   })
 

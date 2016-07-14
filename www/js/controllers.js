@@ -48,12 +48,14 @@ angular.module('starter.controllers', [])
 
   $scope.shareToFacebookUsingDirectPost = function(image, postName, caption, description) {
     $scope.shareToFacebookUsingNgOpenFB(image, postName, caption, description)
-      .then(function(data) {
+    .then(function(data) {
           console.log(data);
+          window.alert("Successfully Posted");
           $scope.success = 'success';
         },
         function(error) {
           console.log(error);
+          window.alert("Failed to Post");
           $scope.error = 'error';
         })
   }
@@ -64,8 +66,6 @@ angular.module('starter.controllers', [])
       method: 'POST',
       path: '/me/feed',
       params: {
-        // message: "I'll be attending: '" + $scope.session.title + "' by " +
-        // $scope.session.speaker
         link: image,
         name: postName,
         caption: caption,
@@ -142,8 +142,8 @@ angular.module('starter.controllers', [])
 $scope.getPicture = function(options) {
       var q = $q.defer();
 
-      navigator.camera.getPicture(function(result) {
-        q.resolve(result);
+      navigator.camera.getPicture(function(imageUrlLocal) {
+        q.resolve(imageUrlLocal);
       }, function(err) {
         q.reject(err);
       }, options);
@@ -186,9 +186,10 @@ $scope.getPicture = function(options) {
       destinationType: 1
     };
 
-    $scope.getPicture(options).then(function(imageData) {
-      $scope.photo = imageData;
-      console.log(imageData);
+    $scope.getPicture(options)
+    .then(function(imageUrlLocal) {
+      $scope.photo = imageUrlLocal;
+      console.log(imageUrlLocal);
     }, function(err) {
       console.log(err);
       $scope.errorTest = err;
@@ -196,7 +197,7 @@ $scope.getPicture = function(options) {
   }
 
 
-  $scope.postImage = function(fileURI, message) {
+  $scope.postImage = function(imageUrlLocal, message) {
 
       var accessToken = window.localStorage['accessToken'];
 
@@ -212,7 +213,7 @@ $scope.getPicture = function(options) {
 
       options.params = params;
 
-     $scope.uploadPhotoFile(fileURI,options)
+     $scope.uploadPhotoFile(imageUrlLocal,options)
      .then(function(success) {
        $scope.testSuccess = success;
        window.alert("Successfully Posted");
@@ -224,26 +225,21 @@ $scope.getPicture = function(options) {
 
   }
 
- $scope.uploadPhotoFile = function(fileURI,options){
+ $scope.uploadPhotoFile = function(imageUrlLocal,options){
 
   var q = $q.defer();
 
-  var win = function (r) {
-    console.log(r);
+  var win = function (response) {
     q.resolve("Successfully Posted");
-
 
   }
 
   var fail = function (error) {
-
-      console.log(error);
       q.reject("Failed to Post");
-
   }
 
    var ft = new FileTransfer();
-   ft.upload(fileURI, "https://graph.facebook.com/v2.6/me/photos", win, fail, options);
+   ft.upload(imageUrlLocal, "https://graph.facebook.com/v2.6/me/photos", win, fail, options);
 
  return q.promise;
  }

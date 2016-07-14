@@ -45,8 +45,8 @@ describe('facebookDirectSharingCtrl', function() {
   it('It should post to facebook successfully', function() {
 
     $httpBackend.whenGET('templates/login.html').respond(200, '');
-    $httpBackend.whenGET('templates/fbPostImageForm.html').respond(200, '');
-    $httpBackend.whenGET('templates/fbPostForm.html').respond(200, '');
+    $httpBackend.whenGET('templates/fbPostImageSharing.html').respond(200, '');
+    $httpBackend.whenGET('templates/fbPostDirectSharing.html').respond(200, '');
     $httpBackend.whenGET('templates/fbPost.html').respond(200, '');
 
     var image = 'image.jpg';
@@ -66,8 +66,8 @@ describe('facebookDirectSharingCtrl', function() {
   it('It should failed to post on facebook', function() {
 
     $httpBackend.whenGET('templates/login.html').respond(200, '');
-    $httpBackend.whenGET('templates/fbPostImageForm.html').respond(200, '');
-    $httpBackend.whenGET('templates/fbPostForm.html').respond(200, '');
+    $httpBackend.whenGET('templates/fbPostImageSharing.html').respond(200, '');
+    $httpBackend.whenGET('templates/fbPostDirectSharing.html').respond(200, '');
     $httpBackend.whenGET('templates/fbPost.html').respond(200, '');
 
     var image = 'image.jpg';
@@ -103,8 +103,8 @@ describe('facebookImageSharingCtrl', function() {
   it('Should successfully take photo', function() {
 
     $httpBackend.whenGET('templates/login.html').respond(200, '');
-    $httpBackend.whenGET('templates/fbPostImageForm.html').respond(200, '');
-    $httpBackend.whenGET('templates/fbPostForm.html').respond(200, '');
+    $httpBackend.whenGET('templates/fbPostImageSharing.html').respond(200, '');
+    $httpBackend.whenGET('templates/fbPostDirectSharing.html').respond(200, '');
     $httpBackend.whenGET('templates/fbPost.html').respond(200, '');
 
     var src = 0;
@@ -121,8 +121,8 @@ describe('facebookImageSharingCtrl', function() {
   it('Should fail to take photo', function() {
 
     $httpBackend.whenGET('templates/login.html').respond(200, '');
-    $httpBackend.whenGET('templates/fbPostImageForm.html').respond(200, '');
-    $httpBackend.whenGET('templates/fbPostForm.html').respond(200, '');
+    $httpBackend.whenGET('templates/fbPostImageSharing.html').respond(200, '');
+    $httpBackend.whenGET('templates/fbPostDirectSharing.html').respond(200, '');
     $httpBackend.whenGET('templates/fbPost.html').respond(200, '');
 
     var src = 0;
@@ -143,8 +143,8 @@ describe('facebookImageSharingCtrl', function() {
     window.localStorage['accessToken'] = '25346742372';
 
     $httpBackend.whenGET('templates/login.html').respond(200, '');
-    $httpBackend.whenGET('templates/fbPostImageForm.html').respond(200, '');
-    $httpBackend.whenGET('templates/fbPostForm.html').respond(200, '');
+    $httpBackend.whenGET('templates/fbPostImageSharing.html').respond(200, '');
+    $httpBackend.whenGET('templates/fbPostDirectSharing.html').respond(200, '');
     $httpBackend.whenGET('templates/fbPost.html').respond(200, '');
 
     var src = 0;
@@ -170,8 +170,8 @@ describe('facebookImageSharingCtrl', function() {
       window.localStorage['accessToken'] = '25346742372';
 
       $httpBackend.whenGET('templates/login.html').respond(200, '');
-      $httpBackend.whenGET('templates/fbPostImageForm.html').respond(200, '');
-      $httpBackend.whenGET('templates/fbPostForm.html').respond(200, '');
+      $httpBackend.whenGET('templates/fbPostImageSharing.html').respond(200, '');
+      $httpBackend.whenGET('templates/fbPostDirectSharing.html').respond(200, '');
       $httpBackend.whenGET('templates/fbPost.html').respond(200, '');
 
       var src = 0;
