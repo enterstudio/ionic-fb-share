@@ -32,15 +32,14 @@ angular.module('starter.controllers', [])
   }
 
   $scope.shareToFacebookUsingLocalStorageImageView = function() {
-  //   var accessToken = window.localStorage['accessToken'];
-  //   console.log('B4IF');
-  //   console.log(accessToken);
-  //   if (accessToken == undefined) {
-  //     $state.go('login');
-  //   } else {
-  //     $state.go('facebookImageSharing');
-  //   }
-  $state.go('facebookImageSharing');
+    var accessToken = window.localStorage['accessToken'];
+    console.log('B4IF');
+    console.log(accessToken);
+    if (accessToken == undefined) {
+      $state.go('login');
+    } else {
+      $state.go('facebookImageSharing');
+    }
    }
 })
 
@@ -174,10 +173,6 @@ $scope.getPicture = function(options) {
 
       }
     });
-
-    // $timeout(function() {
-    //   hideSheet();
-    // }, 3000);
   }
 
   $scope.takePicture = function(src) {
@@ -196,26 +191,16 @@ $scope.getPicture = function(options) {
       console.log(imageData);
     }, function(err) {
       console.log(err);
+      $scope.errorTest = err;
     });
   }
 
 
   $scope.postImage = function(fileURI, message) {
-        var accessToken = window.localStorage['accessToken'];
 
+      var accessToken = window.localStorage['accessToken'];
 
-      var win = function (r) {
-        console.log(r);
-          alert("Successfully Posted");
-      }
-
-      var fail = function (error) {
-
-          console.log(error);
-          alert("Failed to Post");
-      }
-
-      var options = new FileUploadOptions();
+      var options = $scope.newFileUploadOptions();
       options.fileKey = "file";
       options.fileName = 'name_of_photo_' + Math.round((+(new Date()) + Math.random()));
       options.mimeType = "image/jpg";
@@ -227,9 +212,48 @@ $scope.getPicture = function(options) {
 
       options.params = params;
 
-      var ft = new FileTransfer();
-      ft.upload(fileURI, "https://graph.facebook.com/v2.6/me/photos", win, fail, options);
+     $scope.uploadPhotoFile(fileURI,options)
+     .then(function(success) {
+       $scope.testSuccess = success;
+       window.alert("Successfully Posted");
+     }, function(err) {
+       console.log(err);
+       $scope.errorUploadPhotoFileTest = err;
+       window.alert("Failed to Post");
+     });
 
   }
+
+ $scope.uploadPhotoFile = function(fileURI,options){
+
+  var q = $q.defer();
+
+  var win = function (r) {
+    console.log(r);
+    q.resolve("Successfully Posted");
+
+
+  }
+
+  var fail = function (error) {
+
+      console.log(error);
+      q.reject("Failed to Post");
+
+  }
+
+   var ft = new FileTransfer();
+   ft.upload(fileURI, "https://graph.facebook.com/v2.6/me/photos", win, fail, options);
+
+ return q.promise;
+ }
+
+ $scope.newFileUploadOptions = function(){
+   var options = new FileUploadOptions();
+   return options;
+ }
+
+
+
 
   })
