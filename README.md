@@ -63,6 +63,8 @@ For more details, give this a read [Facebook Post from your Ionic app](http://ww
  * [ionic-facebook-integration](https://ccoenraets.github.io/ionic-tutorial/ionic-facebook-integration.html)
  * [Facebook's Feed Dialog](https://developers.facebook.com/docs/sharing/reference/feed-dialog)
  * [Facebook's photo-uploads](https://developers.facebook.com/docs/graph-api/photo-uploads)
+ * [Cordova Camera Plugin](https://github.com/apache/cordova-plugin-camera)
+ * [Cordova File Transfer Plugin](https://github.com/apache/cordova-plugin-file-transfer)
 
 ## License
 
